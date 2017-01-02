@@ -17,7 +17,7 @@
 
 			
 			//Bat Weather Vars
-			var batWeatherImageMarkup = '<img id="batWeather" style="display: none" src="../img/batWeather.gif" />'
+			var batWeatherImageMarkup = '<img id="batWeather" style="display: none" src="img/batWeather.gif" />'
 			var locked = false;
 			
 			//Append BatWeather and Style

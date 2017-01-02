@@ -1,0 +1,32 @@
+p {
+    font-size: 1.5vw;
+}
+
+#map-canvas {
+    width: 300px;
+    height: 300px;
+}
+.konami {
+    background-color: yellow;
+    background-image: url("../img/ynfsLL7.jpg");
+    background-size: 100%;
+    color: #FFF!important;
+}
+
+.konami-footer {
+    color: #000;
+    background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
+}
+
+.panel-transparent {
+    background: none;
+}
+
+.panel-transparent .panel-heading{
+    background: rgba(122, 130, 136, 0.3)!important;
+    border: 1px black;
+}
+
+.panel-transparent .panel-body{
+    background: rgba(46, 51, 56, 0.3)!important;
+}
