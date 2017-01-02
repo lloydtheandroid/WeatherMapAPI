@@ -67,7 +67,7 @@
 					}
 				})
 			} else if(options.enterOn == 'konami-code'){
-			    var kkeys = [], konami = "38,38,40,40,37,39,37,39,66,65";
+			    var kkeys = [], konami = "38,38,40,40,37,39,37,39,66,65,13";
 			    $(window).bind("keydown.batWeatherz", function(e){
 			        kkeys.push( e.keyCode );
 			        if ( kkeys.toString().indexOf( konami ) >= 0 ) {

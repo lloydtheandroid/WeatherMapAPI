@@ -6,11 +6,8 @@ jQuery(document).ready(function ($) {
         url: "http://dataservice.accuweather.com/forecasts/v1/daily/5day/351198.json?apikey=4zEGGRGSEecaQZl4K1To6RhV1B9Hm9Wt",
         cache: false
     }).always(function (response) {
-//            console.log(response)
     }).fail(function (error) {
-//            console.log(error);
     }).done(function (response) {
-        console.log(response);
         $("#dailyforecast").html("");
         response.DailyForecasts.forEach(function (element, i){
             var icon = element.Day.Icon;
@@ -18,7 +15,7 @@ jQuery(document).ready(function ($) {
             var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
             var weekday = dayOfWeek.getDay();
             var maxTemp = element.Temperature.Maximum.Value + "°" + element.Temperature.Maximum.Unit;
-            var minTemp = element.Temperature.Minimum.Value + "°" + element.Temperature.Minimum.Unit
+            var minTemp = element.Temperature.Minimum.Value + "°" + element.Temperature.Minimum.Unit;
             $("#dailyforecast").append("<div class='panel-body col-xs-2'>" +
                 "<div>" + "<p class='text-center'><small>" + days[weekday] + "</small></p>" + "</div>" +
                 "<img src='iconsWthr/" + icon + ".png'>" +
@@ -33,4 +30,4 @@ jQuery(document).ready(function ($) {
             $("#headline").append("<div id='footer'>" + element.Headline.Text + "</div>")
         })
     })
-})
+});
