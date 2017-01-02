@@ -36,7 +36,6 @@
         p {font-size: 1.5vw;}
 
     </style>
-    <script>!window.jQuery && document.write('<script src="Raptorize-Kit/jquery-1.4.1.min.js"><\/script>')</script>
 </head>
 <body id="top">
 <main class="container">
@@ -48,6 +47,7 @@
         <!--Main Content-->
         <div class="panel-body" id="dailyforecast">
         </div>
+        <div class="button"></div>
 
 
         <div class="panel-footer" id="headline">
@@ -57,68 +57,10 @@
 </main>
 
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-<script type="text/javascript">
+<script src="js/weathermap.js"></script>
+<script src="js/jquery.batWeatherize.1.0.js"></script>
+<script src="js/konami.js"></script>
 
-</script>
-<script type="text/javascript">
-
-    jQuery(document).ready(function ($) {
-        $.ajax({
-            type: "GET",
-            dataType: "jsonp",
-            jsonp: "callback", jsonpCallback: "callback",
-            url: "http://dataservice.accuweather.com/forecasts/v1/daily/5day/351198.json?apikey=4zEGGRGSEecaQZl4K1To6RhV1B9Hm9Wt",
-            cache: false
-        }).always(function (response) {
-//            console.log(response)
-        }).fail(function (error) {
-//            console.log(error);
-        }).done(function (response) {
-            console.log(response);
-            $("#dailyforecast").html("");
-            response.DailyForecasts.forEach(function (element, i){
-                var icon = element.Day.Icon;
-                var dayOfWeek = new Date(element.Date);
-                var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
-                var weekday = dayOfWeek.getDay();
-                var maxTemp = element.Temperature.Maximum.Value + "°" + element.Temperature.Maximum.Unit;
-                var minTemp = element.Temperature.Minimum.Value + "°" + element.Temperature.Minimum.Unit
-                $("#dailyforecast").append("<div class='panel-body col-xs-2'>" +
-                    "<div>" + "<p class='text-center'><small>" + days[weekday] + "</small></p>" + "</div>" +
-                    "<img src='iconsWthr/" + icon + ".png'>" +
-                    "<div>" + "<p class='text-center'><small>" + element.Day.IconPhrase + "</small></p>" + "</div>" +
-                    "<div>" + "High - " + maxTemp + "</div>" +
-                    "<div>" + "Low - " + minTemp + "</div>" +
-                    "</div>"
-                );
-            });
-            $("#headline").html("");
-            $(response).each(function (i, element) {
-                $("#headline").append("<div id='footer'>" + element.Headline.Text + "</div>")
-            })
-        })
-    })
-</script>
-<script src="jquery.batWeatherize.1.0.js"></script>
-<script>
-    "use strict";
-
-    var kkeys = [], konami = "38,38,40,40,37,39,37,39,66,65,13";
-    var code = 0;
-    $(document).keydown(function(e) {
-
-        kkeys.push( e.keyCode );
-
-        if ( kkeys.toString().indexOf( konami ) >= 0 ) {
-            if (code == 0) {
-                $("#top").addClass("konami");
-                $("#header").addClass("text-center");
-                $("#headline").addClass("konami-footer");
-                $('.button').raptorize()
-            }
-        }
-    })
-</script>
 
 </body>
 </html>
