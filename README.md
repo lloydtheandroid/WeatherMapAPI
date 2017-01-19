@@ -1,5 +1,7 @@
 # WeatherMapAPI
 
+![weathermap image](https://raw.githubusercontent.com/lloydtheandroid/WeatherMapAPI/master/WeatherMap.png)
+
 This was my first project that integrated AJAX and api requests into a web application. The scope of this project was to build a site that would
 track and update the local weather for a given location. 
 
@@ -44,4 +46,6 @@ jQuery(document).ready(function ($) {
     })
 });
 ```
-This was a fun project that 
+##Conclusion
+
+This was a fun project that showed how to make further make websites more interactive and responsive. I also used konami code to change the background from plain white to a more schwifty version. 
